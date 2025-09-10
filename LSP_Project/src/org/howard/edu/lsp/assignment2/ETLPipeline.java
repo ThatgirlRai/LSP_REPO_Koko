@@ -27,14 +27,16 @@ public class ETLPipeline {
 	writeCSV(transformedData, "data/transformed_products.csv");
 	printSummary(data.size(), transformedData.size(),outputPath);
 	
+	/* DEBUG These lines were used during development to verify file creation
 	File outputFileCheck = new File(outputPath);
     if (outputFileCheck.exists()) {
         System.out.println("DEBUG: Output file exists at: " + outputFileCheck.getAbsolutePath());
         System.out.println("DEBUG: File size: " + outputFileCheck.length() + " bytes");
     } else {
         System.out.println("DEBUG: Output file was NOT created!");
-    	}
+    	}*/ 
 	}
+	
 	
 	
 	private static List<String[]> readCSV(String filename){
@@ -139,14 +141,14 @@ public class ETLPipeline {
                 }
                 writer.println(line.toString());
             }
-            
+            /*
             writer.close();
             System.out.println("DEBUG: Successfully wrote to: " + new File(filename).getAbsolutePath());
-            System.out.println("DEBUG: File should be in: " + new File(filename).getAbsolutePath());
-            return true;
+            System.out.println("DEBUG: File should be in: " + new File(filename).getAbsolutePath());*/
+            return true; 
+           
             
-            
-        } catch (IOException e) {
+            } catch (IOException e) {
             System.out.println("Error writing to file: " + e.getMessage());
             return false;
         }
