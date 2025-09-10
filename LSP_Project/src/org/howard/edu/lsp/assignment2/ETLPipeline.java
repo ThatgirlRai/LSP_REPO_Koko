@@ -7,6 +7,9 @@ import java.util.*;
 
 
 public class ETLPipeline {
+	/**
+	 * Name: Sarai Prentice
+	 */
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -80,7 +83,7 @@ public class ETLPipeline {
             // 2. Apply 10% discount for Electronics
             if ("Electronics".equals(category)) {
                 price = price * 0.9;
-                // Round to 2 decimals using Math.round (no BigDecimal)
+                // Round to 2 decimals using Math.round
                 price = Math.round(price * 100.0) / 100.0;
                 
                 // 3. Recategorize if price > 500 after discount
