@@ -9,6 +9,8 @@ import java.util.List;
 public class CSVProductReader {
     private String filename;
     
+    
+    
     public CSVProductReader(String filename) {
         this.filename = filename;
     }
