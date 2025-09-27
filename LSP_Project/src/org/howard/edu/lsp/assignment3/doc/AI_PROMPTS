@@ -1,2 +1,29 @@
-Throughout the development process, I engaged with an AI assistant to refine the implementation and address specific technical challenges. The collaboration focused on architectural design, debugging, and ensuring object-oriented principles were properly applied.
+Throughout the development process, I engaged with an AI assistant Deep Seek  to refine the implementation and address specific technical challenges. The collaboration focused on architectural design, debugging, and ensuring object-oriented principles were properly applied.
+
+Ok what should i name my class files
+
+Deepseek: 
+Product.java - Your product data class 
+
+CSVProductReader.java - Your reader class 
+
+ProductTransformer.java - Your transformer class 
+
+ProductDataWriter.java - The writer class 
+
+ProductETLPipeline.java - Your main class 
+
+
+User"
+Remove 'filename', keep assignments with side effects. Create getter and setter for 'filename'. Rename in file..."
+
+
+Deepseek: modify the CSVProductReader class to remove the filename parameter from the constructor while keeping side effects, and add getter/setter methods
+
+
+user:"This is supposed to be the output format"
+
+DeepSeek:" I see the issue! Your current output doesn't match the desired format. We need to fix the ProductTransformer to produce uppercase names while keeping category names in original case, and ensure the PriceRange column is included.."
+
+,;
 
