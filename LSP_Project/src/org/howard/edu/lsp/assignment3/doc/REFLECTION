@@ -1,0 +1,56 @@
+
+Assignment 2 and Assignment 3 both implemented an ETL (Extract, Transform, Load) pipeline for product data, but with significantly different architectural approaches. While Assignment 2 followed a procedural design with monolithic functions, Assignment 3 embraced object-oriented principles to create a more modular, maintainable, and scalable solution.
+
+Design Differences
+Assignment 2: Procedural Approach
+The second assignment employed a single-class structure where all ETL functionality was contained within monolithic methods. The design characteristics included:
+
+Single Responsibility Violation: One large class handled file reading, data transformation, validation, and writing operations
+
+Tight Coupling: All operations were interdependent within large methods
+
+Limited Reusability: Code was difficult to repurpose for different data formats or transformation rules
+
+Procedural Flow: Sequential method calls with shared global state through method parameters
+
+
+
+
+Testing and Validation Approach: 
+Comparative Testing Strategy
+To ensure Assignment 3 maintained functional parity with Assignment 2, I implemented a multi-phase testing approach:
+
+Input-Output Verification: Processed identical CSV files through both implementations and compared output files byte-for-byte
+
+Transformation Validation: Created test cases for edge cases including:
+
+Products with negative prices (should be filtered)
+
+Empty product names (should be rejected)
+
+Boundary price values ($10.00, $100.00, $500.00) for range categorization
+
+Mixed-case input verification
+
+Error Handling Comparison: Tested both implementations with:
+
+Missing input files
+
+Malformed CSV data
+
+Permission issues with output files
+
+
+
+Architectural Benefits Realized
+The object-oriented approach in Assignment 3 provided several advantages over Assignment 2:
+
+Maintainability: Individual classes can be modified without affecting others
+
+Testability: Each component can be unit tested in isolation
+
+Extensibility: New data sources or transformation rules can be added with minimal changes
+
+Readability: The code structure clearly communicates architectural intent
+
+Reusability: Components like CSVProductReader can be reused in other data processing contexts
