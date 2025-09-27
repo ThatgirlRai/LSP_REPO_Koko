@@ -14,18 +14,18 @@ public class ProductDataWriter {
     
     public void writeProducts(List<ProductRecord> products) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filename))) {
-            // ↓↓↓ MAKE SURE HEADER INCLUDES PriceRange ↓↓↓
+            
             bw.write("ProductID,Name,Price,Category,PriceRange");
             bw.newLine();
             
             for (ProductRecord product : products) {
-                // ↓↓↓ MAKE SURE TO INCLUDE getPriceRange() IN THE OUTPUT ↓↓↓
+               
                 String line = String.format("%s,%s,%.2f,%s,%s",
                     product.getId(),
                     product.getName(),
                     product.getPrice(),
                     product.getCategory(),
-                    product.getPriceRange()); // ← THIS MUST BE HERE
+                    product.getPriceRange()); 
                 
                 bw.write(line);
                 bw.newLine();
