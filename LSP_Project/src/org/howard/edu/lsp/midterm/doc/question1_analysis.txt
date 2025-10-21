@@ -1,8 +1,9 @@
+
+
+
 Question 1 Analysis - StudentPortalHelper Class Cohesion
 
-a) A good class should have high cohesion - 
-meaning it does one main job really well. When a class focuses on just one thing, it's easier to understand, fix, and reuse. Low cohesion (doing many different jobs) makes code messy and hard to work with.
-
+a.) A good class should have high cohesion - meaning it does one main job really well. As defined by Arthur Riel (1996), a highly cohesive class is one where "all of the operations... are strongly related to the class itself" (p. 57). When a class focuses on just one thing, it's easier to understand, fix, and reuse. Low cohesion (doing many different jobs) makes code messy and hard to work with, as it violates this principle by containing "a set of unrelated operations" (Riel, 1996, p. 57).
 b) The StudentPortalHelper class has low cohesion because it's trying to do too many different jobs:
 
 - Calculating GPAs

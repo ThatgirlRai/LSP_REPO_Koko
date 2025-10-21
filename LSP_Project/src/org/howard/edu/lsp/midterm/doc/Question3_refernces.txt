@@ -4,8 +4,99 @@ References for Question 3:
     Last Updated: 17 Mar, 2025. 
     https://www.geeksforgeeks.org/favoring-composition-over-inheritance-in-java-with-examples/
     
-    Key points referenced:
-    - "Changes in a superclass can break subclasses" (fragile base class problem)
-    - "With composition, you can easily change or replace components without affecting the main class"
-    - Composition creates "has-a" relationships vs. inheritance's "is-a" relationships
-    - Composition provides better flexibility and maintainability
+   AI Usage 
+   
+  
+  
+  
+   Can I use this reference to support my answer https://www.geeksforgeeks.org/java/favoring-composition-over-inheritance-in-java-with-examples/?a) The current design doesn't work for changing trims because it uses inheritance. A Car is permanently a BaseCar, SportsCar, or LuxuryCar from the moment it's created. You can't change it from one to another without building a whole new car object. The class structure is too rigid.
+
+b) A better way is to use composition instead of inheritance. Here's how you could change it:
+
+Get rid of the specific subclasses (BaseCar, SportsCar, LuxuryCar).
+
+Create a new class, maybe called TrimPackage, that holds all the details for a trim level (like its cost, features). Then make specific trim objects: a BaseTrim, a SportsTrim, and a LuxuryTrim.
+
+In the main Car class, instead of extending a trim class, you give it a field for a TrimPackage (e.g., private TrimPackage myTrim;).
+
+
+
+Answer: Yes, using the provided GeeksforGeeks article as a reference is an excellent way to strengthen your answer. It demonstrates that your solution is based on a recognized software design principle.
+
+Question 3 Analysis - Car Manufacturing System
+a) The current structure does NOT support dynamically changing trim levels because it uses inheritance where Car is extended by Base, Sports, and Luxury classes. As explained in GeeksforGeeks' "Favoring Composition Over Inheritance In Java With Examples," inheritance creates rigid "is-a" relationships where "changes in a superclass can break subclasses" and the hierarchy becomes inflexible [1]. Once a Car object is instantiated as a specific trim type, it cannot change its trim level without creating an entirely new object.
+
+b) To refactor using composition, we should apply the principle of "favoring composition over inheritance" [1]. This approach provides the flexibility needed for dynamic trim changes:
+
+Remove the inheritance hierarchy (delete Base, Sports, Luxury subclasses).
+
+Create a TrimLevel interface or class that defines trim-level behavior.
+
+Create concrete trim classes: BaseTrim, SportsTrim, LuxuryTrim.
+
+Modify the Car class to contain a TrimLevel component instead of extending it:
+
+Add field: private TrimLevel currentTrim
+
+Add method: public void setTrimLevel(TrimLevel newTrim)
+
+This creates a "has-a" relationship instead of "is-a" [1], allowing trim levels to be swapped dynamically.
+
+As the article states, "With composition, you can easily change or replace components without affecting the main class" [1], which perfectly solves the requirement for dynamic trim-level changes during manufacturing.
+
+Reference:
+[1] GeeksforGeeks. "Favoring Composition Over Inheritance In Java With Examples." Last Updated: 17 Mar, 2025. https://www.geeksforgeeks.org/favoring-composition-over-inheritance-in-java-with-examples/
+
+
+   
+   
+   
+   
+  USER: 
+   "does thsi answer make sense Question 3 Analysis - Car Manufacturing System
+
+a) The current structure does NOT support dynamically changing trim levels because it uses inheritance where Car is extended by Base, Sports, and Luxury classes. As explained in GeeksforGeeks' "Favoring Composition Over Inheritance In Java With Examples," inheritance creates rigid "is-a" relationships where "changes in a superclass can break subclasses" and the hierarchy becomes inflexible [1]. Once a Car object is instantiated as a specific trim type, it cannot change its trim level without creating an entirely new object.
+
+b) To refactor using composition, we should apply the principle of "favoring composition over inheritance" [1]. This approach provides the flexibility needed for dynamic trim changes:
+
+1. Remove the inheritance hierarchy (delete Base, Sports, Luxury subclasses)
+2. Create a TrimLevel interface or class that defines trim-level behavior
+3. Create concrete trim classes: BaseTrim, SportsTrim, LuxuryTrim  
+4. Modify the Car class to contain a TrimLevel component instead of extending it:
+   - Add field: private TrimLevel currentTrim
+   - Add method: public void setTrimLevel(TrimLevel newTrim)
+5. This creates a "has-a" relationship instead of "is-a" [1], allowing trim levels to be swapped dynamically
+
+As the article states, "With composition, you can easily change or replace components without affecting the main class" [1], which perfectly solves the requirement for dynamic trim-level changes during manufacturing.
+
+Reference:
+[1] GeeksforGeeks. "Favoring Composition Over Inheritance In Java With Examples." Last Updated: 17 Mar, 2025. https://www.geeksforgeeks.org/favoring-composition-over-inheritance-in-java-with-examples/"
+Yes, this answer makes excellent sense and is very well-written. It is clear, concise, and directly addresses both parts of the question using a relevant and correctly applied reference.
+
+Here's a breakdown of why it's so effective:
+
+Strengths:
+Direct and Clear Answer: You start both parts (a) and (b) with a strong, declarative sentence that immediately answers the question.
+
+Correct Diagnosis (Part a): You correctly identify the core problem: the use of a rigid inheritance hierarchy ("is-a") which locks an object's type at creation. The quote about changes in a superclass breaking subclasses is perfectly relevant.
+
+Excellent Solution (Part b): Your refactoring plan is a textbook-perfect application of the composition over inheritance principle. The step-by-step breakdown is easy to follow and implement.
+
+Effective Use of Reference: You don't just name-drop the article; you integrate its key concepts ("is-a" vs. "has-a," flexibility, avoiding rigidity) to explain why composition is the better solution. The final quote, "With composition, you can easily change or replace components..." directly proves that your solution solves the problem.
+
+Perfect Terminology: You use the correct technical terms like "inheritance hierarchy," "composition," "interface," "concrete classes," and "dynamic."
+
+Minor Nitpicks & Areas for Very Minor Improvement:
+The answer is already great, but if you wanted to make it slightly more robust, you could:
+
+Clarify the "TrimLevel" Type: You correctly state it could be an "interface or class." Specifying that it should be an interface would be the most flexible and conventional choice, as it would allow you to define the required behaviors (e.g., getCost(), getFeatures()) that all trims must implement.
+
+Add a Tiny Concrete Example: You could briefly mention what the TrimLevel interface might contain.
+
+Example Addition: "The TrimLevel interface would define methods like getCost() and getFeatures(). The Car class would then delegate calls to its currentTrim component (e.g., car.getCost() would return basePrice + currentTrim.getCost())."
+
+Conclusion:
+This is a high-quality answer. It demonstrates a solid understanding of object-oriented design principles and the specific trade-offs between inheritance and composition. The logic is sound, the solution is practical, and the reference is used effectively to support the argument.
+
+You correctly identified the problem and prescribed the correct, well-explained solution. Full marks.
+

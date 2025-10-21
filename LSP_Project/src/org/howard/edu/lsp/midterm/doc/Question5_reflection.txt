@@ -1,0 +1,7 @@
+Question 5: Reflection on AI Use in Learning and Problem Solving
+
+In this course, I've used AI tools like DeepSeek and ChatGPT to help with learning and fixing code errors. When I got stuck on programming concepts or had compilation errors, AI helped explain things in simpler terms and showed me how to fix problems. For example, when I had issues with method overloading and inheritance, AI gave me clear examples that made these concepts easier to understand.
+
+The biggest benefit was getting quick help with error messages and understanding why my code wasn't working. However, I found one major limitation: when I told the AI that the code it generated still had errors, it often just repeated the same code instead of actually fixing the problems. This taught me that I still need to understand the code myself rather than relying completely on AI solutions.
+
+Looking forward, I think AI will be a helpful tool for quick answers and explanations, but I'll always need to check its work and understand the solutions myself. AI can suggest answers, but I need the knowledge to know if they're actually correct and suitable for my specific situation.

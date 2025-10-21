@@ -1,0 +1,132 @@
+References for Question 4:
+
+AI-Generated Content:
+
+---
+USER PROMPT:
+I need to create a smart campus device system in Java with multiple files. Can you walk me through the exact steps to create all the required files in Eclipse? I need:
+- Abstract Device class
+- Networked and BatteryPowered interfaces  
+- DoorLock, Thermostat, Camera classes
+- Main driver class
+
+What's the best order to create these files and what type should each be (class vs interface)?
+
+AI RESPONSE:
+Here's the step-by-step process for creating all files in Eclipse:
+
+1. **Create the package first**: Right-click src → New → Package → Name: org.howard.edu.lsp.midterm.question4
+
+2. **Create interfaces first** (simplest):
+   - Right-click package → New → Interface → Name: Networked
+   - Right-click package → New → Interface → Name: BatteryPowered
+
+3. **Create abstract class**:
+   - Right-click package → New → Class → Name: Device → Check "Abstract" checkbox
+
+4. **Create concrete classes**:
+   - Right-click package → New → Class → Name: DoorLock → DO NOT check abstract
+   - Right-click package → New → Class → Name: Thermostat → DO NOT check abstract  
+   - Right-click package → New → Class → Name: Camera → DO NOT check abstract
+
+5. **Create Main class**:
+   - Right-click package → New → Class → Name: Main → CHECK "public static void main"
+
+Create them in this order so dependencies are available when you implement each class.
+
+---
+USER PROMPT:
+I need to create a smart campus device system in Java. The requirements are:
+- Abstract base class Device with id, location, heartbeat, and connection status
+- Networked interface with connect(), disconnect(), isConnected()
+- BatteryPowered interface with getBatteryPercent(), setBatteryPercent()
+- Three concrete devices: DoorLock, Thermostat, Camera
+
+Can you give me the complete code structure for the abstract Device class and the two interfaces?
+
+AI RESPONSE:
+Here's the complete structure for the base classes and interfaces:
+
+```java
+// Device.java - Abstract class
+package org.howard.edu.lsp.midterm.question4;
+
+public abstract class Device {
+    private String id;
+    private String location;
+    private long lastHeartbeatEpochSeconds;
+    private boolean connected;
+
+    public Device(String id, String location) {
+        if (id == null || id.isEmpty() || location == null || location.isEmpty()) {
+            throw new IllegalArgumentException("Invalid id or location");
+        }
+        this.id = id;
+        this.location = location;
+        this.lastHeartbeatEpochSeconds = 0;
+        this.connected = false;
+    }
+
+    // Getters and setters...
+    public abstract String getStatus();
+}
+
+// Networked.java - Interface
+package org.howard.edu.lsp.midterm.question4;
+
+public interface Networked {
+    void connect();
+    void disconnect();
+    boolean isConnected();
+}
+
+// BatteryPowered.java - Interface  
+package org.howard.edu.lsp.midterm.question4;
+
+public interface BatteryPowered {
+    int getBatteryPercent();
+    void setBatteryPercent(int percent);
+}
+
+
+Now I need to implement the three concrete device classes. Can you show me how to structure the DoorLock class that extends Device and implements both Networked and BatteryPowered interfaces?
+AI RESPONSE:
+Here's the DoorLock class structure:
+
+java
+package org.howard.edu.lsp.midterm.question4;
+
+public class DoorLock extends Device implements Networked, BatteryPowered {
+    private int batteryPercent;
+    
+    public DoorLock(String id, String location, int initialBattery) {
+        super(id, location);
+        setBatteryPercent(initialBattery);
+    }
+    
+    @Override
+    public void connect() { setConnected(true); }
+    
+    @Override
+    public void disconnect() { setConnected(false); }
+    
+    @Override
+    public boolean isConnected() { return super.isConnected(); }
+    
+    @Override
+    public int getBatteryPercent() { return batteryPercent; }
+    
+    @Override
+    public void setBatteryPercent(int percent) {
+        if (percent < 0 || percent > 100) throw new IllegalArgumentException("battery 0..100");
+        this.batteryPercent = percent;
+    }
+    
+    @Override
+    public String getStatus() {
+        String connStatus = isConnected() ? "up" : "down";
+        return "DoorLock[id=" + getId() + ", loc=" + getLocation() + 
+               ", conn=" + connStatus + ", batt=" + batteryPercent + "%]";
+    }
+}
+
