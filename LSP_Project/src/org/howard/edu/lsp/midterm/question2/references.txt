@@ -1,0 +1,108 @@
+I'm getting this Java compilation error in Eclipse:
+
+"Exception in thread "main" java.lang.Error: Unresolved compilation problems: 
+	Duplicate method main(String[]) in type Main
+	Syntax error, insert "}" to complete MethodBody
+
+	at org.howard.edu.lsp.midterm.question2.Main.main(Main.java:5)"
+
+I have two Java files:
+
+File 1: AreaCalculator.java
+```java
+package org.howard.edu.lsp.midterm.question2;
+
+public class AreaCalculator {
+    
+    // Circle area
+    public static double area(double radius) {
+        if (radius <= 0) {
+            throw new IllegalArgumentException("Radius must be positive");
+        }
+        return Math.PI * radius * radius;
+    }
+    
+    // Rectangle area
+    public static double area(double width, double height) {
+        if (width <= 0 || height <= 0) {
+            throw new IllegalArgumentException("Width and height must be positive");
+        }
+        return width * height;
+    }
+    
+    // Triangle area
+    public static double area(int base, int height) {
+        if (base <= 0 || height <= 0) {
+            throw new IllegalArgumentException("Base and height must be positive");
+        }
+        return 0.5 * base * height;
+    }
+    
+    // Square area
+    public static double area(int side) {
+        if (side <= 0) {
+            throw new IllegalArgumentException("Side must be positive");
+        }
+        return side * side;
+    }
+}
+
+
+File 2 Main.java has compilation errors. Please provide the complete correct Main.java code that:
+
+Has only one main method
+
+Tests all four overloaded area methods
+
+Demonstrates exception handling
+
+java
+package org.howard.edu.lsp.midterm.question2;
+
+public class Main {
+    public static void main(String[] args) {
+        // Test all overloaded methods
+        System.out.println("Circle radius 3.0 → area = " + AreaCalculator.area(3.0));
+        System.out.println("Rectangle 5.0 x 2.0 → area = " + AreaCalculator.area(5.0, 2.0));
+        System.out.println("Triangle base 10, height 6 → area = " + AreaCalculator.area(10, 6));
+        System.out.println("Square side 4 → area = " + AreaCalculator.area(4));
+        
+        // Exception demonstration
+        try {
+            AreaCalculator.area(-5.0);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+    
+    /*
+     * Overloading is the better design choice here because all methods
+     * perform the same fundamental operation (calculating area) but for
+     * different shapes. This provides a consistent, intuitive API where
+     * users don't need to remember different method names for the same
+     * conceptual operation. The compiler determines which method to call
+     * based on parameters, making the code cleaner and more readable.
+     */
+}
+Step 2: Save Both Files
+Save Main.java (Ctrl + S)
+
+Save AreaCalculator.java (if not already saved)
+
+Step 3: Run the Code
+Right-click on Main.java in the package explorer
+
+Select Run As → Java Application
+
+Expected Output:
+text
+Circle radius 3.0 → area = 28.274333882308138
+Rectangle 5.0 x 2.0 → area = 10.0
+Triangle base 10, height 6 → area = 30.0
+Square side 4 → area = 16.0
+Error: Radius must be positive
+The "duplicate main method" error means you had two main methods in your Main class. Replacing all content with the clean code above will fix this.
+
+Try this and let me know what happens!
+
+
