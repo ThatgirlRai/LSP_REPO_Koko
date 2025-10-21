@@ -1,0 +1,30 @@
+Question 1 Analysis - StudentPortalHelper Class Cohesion
+
+a) A good class should have high cohesion - 
+meaning it does one main job really well. When a class focuses on just one thing, it's easier to understand, fix, and reuse. Low cohesion (doing many different jobs) makes code messy and hard to work with.
+
+b) The StudentPortalHelper class has low cohesion because it's trying to do too many different jobs:
+
+- Calculating GPAs
+- Exporting files
+- Sending emails
+- Formatting dates
+- Processing payments
+- Checking passwords
+- Managing cache
+
+To fix it, we should break it into separate classes:
+
+GPACalculator (just for GPA math)
+
+FileExporter (just for saving files)
+
+EmailService (just for emails)
+
+DateHelper (just for dates)
+
+PaymentService (just for payments)
+
+SecurityChecker (just for passwords)
+
+CacheService (just for caching)
