@@ -1,0 +1,11 @@
+References for Question 3:
+
+[1] GeeksforGeeks. "Favoring Composition Over Inheritance In Java With Examples." 
+    Last Updated: 17 Mar, 2025. 
+    https://www.geeksforgeeks.org/favoring-composition-over-inheritance-in-java-with-examples/
+    
+    Key points referenced:
+    - "Changes in a superclass can break subclasses" (fragile base class problem)
+    - "With composition, you can easily change or replace components without affecting the main class"
+    - Composition creates "has-a" relationships vs. inheritance's "is-a" relationships
+    - Composition provides better flexibility and maintainability
